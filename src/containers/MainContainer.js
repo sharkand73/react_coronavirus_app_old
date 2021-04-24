@@ -8,7 +8,9 @@ const MainContainer = () => {
     const [filteredData, setFilteredData] = useState([]);
     const [graphSelected, setGraphSelected] = useState(1);
 
-
+    useEffect(() => {
+       console.log(`Graph to display: ${graphSelected}`);
+       }, [graphSelected]);
     useEffect(() => {getData()}, []);
 
     const getData = function(){
@@ -26,9 +28,7 @@ const MainContainer = () => {
 
     const buttonPress = (n) => {
         setGraphSelected(n);
-        // console.log(`Graph to display: ${graphSelected}`);
         }
-    
 
     return (
         <>

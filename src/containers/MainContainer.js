@@ -19,13 +19,17 @@ const MainContainer = () => {
     
     console.log(data.dailyCases);
 
+    const processForm  = function(dateRange){
+        console.log(dateRange.startDate);
+        // create filtered array using dates
+    }
 
     return (
         <>
             <header>
                 <h1>Covid Stats for England</h1>
             </header>
-            <DatesForm className="dates-form"/>
+            <DatesForm className="dates-form" processForm={processForm}/>
             <Panel className="panel"/>
 
         </>

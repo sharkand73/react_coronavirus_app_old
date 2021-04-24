@@ -40,7 +40,7 @@ const MainContainer = () => {
             </header>
             <DatesForm className="dates-form" processForm={processForm}/>
             <Panel className="panel" buttonPress={buttonPress}/>
-            <Graph1 filteredData = {filteredData}/>
+            <Graph1 filteredData = {data}/>
 
         </>
     )

@@ -6,7 +6,7 @@ import Panel from '../components/Panel';
 const MainContainer = () => {
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
-    const [graphToDisplay, setGraphToDisplay] = useState(0);
+    const [graphSelected, setGraphSelected] = useState(1);
 
 
     useEffect(() => {getData()}, []);
@@ -24,13 +24,19 @@ const MainContainer = () => {
         // create filtered array using dates
     }
 
+    const buttonPress = (n) => {
+        setGraphSelected(n);
+        // console.log(`Graph to display: ${graphSelected}`);
+        }
+    
+
     return (
         <>
             <header>
                 <h1>Covid Stats for England</h1>
             </header>
             <DatesForm className="dates-form" processForm={processForm}/>
-            <Panel className="panel"/>
+            <Panel className="panel" buttonPress={buttonPress}/>
 
         </>
     )

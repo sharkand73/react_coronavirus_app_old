@@ -3,7 +3,7 @@ import MainContainer from './containers/MainContainer';
 
 function App() {
   return (
-    <MainContainer />
+    <MainContainer className="main-container"/>
   );
 }
 

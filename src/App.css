@@ -1,4 +1,23 @@
-.App {
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.main-container {
+  width: 80%;
+  background: gray;
+}
+
+header {
+  text-align: center;
+  color: magenta;
+}
+
+button {
+  width: 25%;
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +54,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 
-const DatesForm = ({processForm}) => {
-    const [startDate, setStartDate] = useState("");
-    const [endDate, setEndDate] = useState("")
+const DatesForm = ({processForm}, {data}) => {
+    const [startDate, setStartDate] = useState(new Date("31/01/2020"));
+    const [endDate, setEndDate] = useState(new Date());
+    const [filteredData, setFilteredData] = useState(data);
 
     const handleStartDate = (e) => {
         setStartDate(e.target.value);
@@ -13,11 +14,13 @@ const DatesForm = ({processForm}) => {
 
     const handleForm = (e) => {
         e.preventDefault();
-        let dateRange = {
-            startDate: startDate,
-            endDate: endDate
-        };
-        processForm(dateRange);
+        const newDataSet = data.filter(
+            (dataItem) => 
+            (new Date(dataItem.date) >= new Date(startDate)) 
+            && (new Date(dataItem.date) <= new Date(endDate))
+        );
+        setFilteredData(newDataSet);
+        console.log(newDataSet[0]);   
     }
 
     return (

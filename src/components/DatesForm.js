@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
+import staticData from '../components/staticData';
 
-const DatesForm = ({processForm}, {data}) => {
-    const [startDate, setStartDate] = useState(new Date("31/01/2020"));
+const DatesForm = ({processFilter}) => {
+    const data = staticData;
+    const [startDate, setStartDate] = useState(new Date("2020-01-31"));
     const [endDate, setEndDate] = useState(new Date());
-    const [filteredData, setFilteredData] = useState(data);
 
     const handleStartDate = (e) => {
         setStartDate(e.target.value);
@@ -19,8 +20,8 @@ const DatesForm = ({processForm}, {data}) => {
             (new Date(dataItem.date) >= new Date(startDate)) 
             && (new Date(dataItem.date) <= new Date(endDate))
         );
-        setFilteredData(newDataSet);
-        console.log(newDataSet[0]);   
+        console.log(newDataSet[0]); 
+        processFilter(newDataSet);  
     }
 
     return (

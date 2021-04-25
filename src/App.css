@@ -17,6 +17,10 @@ button {
   width: 25%;
 }
 
+.date-input {
+  width: 50%;
+}
+
 /* .App {
   text-align: center;
 }

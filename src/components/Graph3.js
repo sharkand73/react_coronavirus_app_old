@@ -6,13 +6,16 @@ const Graph3 = ({filteredData}) => {
     graphData.unshift(["Date", "Cumulative Cases"]);
     
     return(
-        <Chart
-        chartType="LineChart"
-        data={graphData}
-        width="100%"
-        height="400px"
-        legendToggle
-      />
+        <div>
+            <h3>Graph 3</h3>
+            <Chart
+            chartType="LineChart"
+            data={graphData}
+            width="100%"
+            height="400px"
+            legendToggle
+            />
+        </div>
     )
 }
 

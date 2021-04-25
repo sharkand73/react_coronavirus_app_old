@@ -6,13 +6,17 @@ const Graph2 = ({filteredData}) => {
     graphData.unshift(["Date", "Daily Deaths"]);
     
     return(
-        <Chart
-        chartType="LineChart"
-        data={graphData}
-        width="100%"
-        height="400px"
-        legendToggle
-      />
+        <div>
+            <h3>Graph 2</h3>
+            <Chart
+            chartType="LineChart"
+            data={graphData}
+            width="100%"
+            height="400px"
+            legendToggle
+            />
+        </div>
+
     )
 }
 

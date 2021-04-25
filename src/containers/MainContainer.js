@@ -35,9 +35,11 @@ const errorAvoider = [
     }
     ];
 
+    const data = staticData;
+
     //const [data, setData] = useState(errorAvoider);
     const [dataTimePeriod, setDataTimePeriod] = useState({start: "2020-01-31", end: convertDate(new Date())});
-    
+    const [filteredData, setFilteredData] = useState(data);
     const [graphSelected, setGraphSelected] = useState(1);
 
     useEffect(() => {
@@ -58,8 +60,6 @@ const errorAvoider = [
     //     setData(staticData);
     // }
 
-    const data = staticData;
-
     // const processForm  = function(dateRange, myData){
     //     if (myData) {
     //     const newDataSet = myData.filter((dataItem) => 
@@ -75,18 +75,20 @@ const errorAvoider = [
     const buttonPress = (n) => {
         setGraphSelected(n-1);
         }
-    
-    const graphs = [<Graph1 filteredData = {data}/>, 
-                    <Graph2 filteredData = {data}/>,
-                    <Graph3 filteredData = {data}/>,
-                    <Graph4 filteredData = {data}/>]
+    const processFilter = function(newDataSet){
+        setFilteredData(newDataSet);
+    }
+    const graphs = [<Graph1 filteredData = {filteredData}/>, 
+                    <Graph2 filteredData = {filteredData}/>,
+                    <Graph3 filteredData = {filteredData}/>,
+                    <Graph4 filteredData = {filteredData}/>]
 
     return (
         <>
             <header>
                 <h1>Covid Stats for England</h1>
             </header>
-            <DatesForm className="dates-form" data={data}/>
+            <DatesForm className="dates-form" processFilter={processFilter}/>
             <Panel className="panel" buttonPress={buttonPress}/>
             {graphs[graphSelected]}
         </>

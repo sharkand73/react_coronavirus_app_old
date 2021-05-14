@@ -2,7 +2,9 @@ import React from 'react'
 import { Chart } from "react-google-charts";
 
 const Graph2 = ({filteredData}) => {
-    const graphData = filteredData.map((item) => {return [new Date(item.date), item.dailyDeaths]});
+    const graphData = filteredData.map((item) => {
+        return [new Date(item.date), item.dailyDeaths]
+    });
     graphData.unshift(["Date", "Daily Deaths"]);
     
     return(

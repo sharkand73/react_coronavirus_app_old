@@ -22,6 +22,12 @@ const MainContainer = () => {
     //     return (yyyy+"-"+mm+"-"+dd);
     // }
 
+    const convertDate = function(dateString){
+        let dateSplit = dateString.split("-");
+        let newString = dateSplit[2]+"/"+dateSplit[1]+"/"+dateSplit[0];
+        return newString;     
+    }
+
 const errorAvoider = [
     {
     "date": "2021-03-01",
@@ -66,9 +72,17 @@ const errorAvoider = [
             <header>
                 <h1>Covid Stats for England</h1>
             </header>
-            <DatesForm className="dates-form" data={data} processFilter={processFilter}/>
+
+            <p>Date: {convertDate(data[0].date)}</p>
+            <p>Daily Cases: {data[0].casesDaily}</p>
+            <p>Daily Deaths: {data[0].deathsDaily}</p>
+            <p>Cumulative Cases: {data[0].casesCumulative}</p>
+            <p>Cumulative Deaths: {data[0].deathsCumulative}</p>
+
+
+            {/* <DatesForm className="dates-form" data={data} processFilter={processFilter}/>
             <Panel className="panel" buttonPress={buttonPress}/>
-            {graphs[graphSelected]}
+            {graphs[graphSelected]} */}
         </>
     )
 }

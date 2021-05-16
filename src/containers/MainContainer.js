@@ -28,6 +28,12 @@ const MainContainer = () => {
         return newString;     
     }
 
+    function nwc(number) {
+        if (number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+    }
+
 const errorAvoider = [
     {
     "date": "2021-03-01",
@@ -72,12 +78,32 @@ const errorAvoider = [
             <header>
                 <h1>Covid Stats for England</h1>
             </header>
-
-            <p>Date: {convertDate(data[0].date)}</p>
-            <p>Daily Cases: {data[0].casesDaily}</p>
-            <p>Daily Deaths: {data[0].deathsDaily}</p>
-            <p>Cumulative Cases: {data[0].casesCumulative}</p>
-            <p>Cumulative Deaths: {data[0].deathsCumulative}</p>
+            <div id="today">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td className='today-heading'>Date:</td> 
+                            <td className='today-data'>{convertDate(data[0].date)}</td>
+                        </tr>
+                        <tr>
+                            <td className='today-heading'>Daily Cases:</td> 
+                            <td className='today-data'>{nwc(data[0].casesDaily)}</td>
+                        </tr>
+                        <tr>
+                            <td className='today-heading'>Daily Deaths:</td> 
+                            <td className='today-data'>{nwc(data[0].deathsDaily)}</td>
+                        </tr>
+                        <tr>
+                            <td className='today-heading'>Cumulative Cases:</td> 
+                            <td className='today-data'>{nwc(data[0].casesCumulative)}</td>
+                        </tr>
+                        <tr>
+                            <td className='today-heading'>Cumulative Deaths:</td> 
+                            <td className='today-data'>{nwc(data[0].deathsCumulative)}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
 
             {/* <DatesForm className="dates-form" data={data} processFilter={processFilter}/>

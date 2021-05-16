@@ -3,6 +3,26 @@ body {
   justify-content: center;
 }
 
+#today {
+  height: 200px;
+  width: 300x;
+  border-width: 10px;
+  border-radius: 20px;
+  border-color: slateblue;
+  border-style: solid;
+}
+
+.today-heading {
+  color: black;
+  font-weight: bold;
+  padding-right: 30px;
+}
+
+.today-data {
+  color: navy;
+  text-align: right;
+}
+
 .main-container {
   width: 80%;
   background: gray;

@@ -5,22 +5,25 @@ body {
 
 #today {
   height: 200px;
-  width: 300x;
+  width: 350x;
   border-width: 10px;
   border-radius: 20px;
   border-color: slateblue;
   border-style: solid;
+  font-size:20px;
 }
 
 .today-heading {
   color: black;
   font-weight: bold;
   padding-right: 30px;
+  padding-top: 10px;
 }
 
 .today-data {
   color: navy;
   text-align: right;
+  padding-top: 10px;
 }
 
 .main-container {
@@ -30,7 +33,7 @@ body {
 
 header {
   text-align: center;
-  color: magenta;
+  color: navy;
 }
 
 button {
